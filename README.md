@@ -76,13 +76,13 @@ https://user-images.githubusercontent.com/77886826/167910647-88da0576-8467-4b1b-
 ex) [이성인] 리엑트는 너무 재밋어!
 
 # 1번
-<img src="img/1.gif">
+<img src="./image/1.gif">
 
 # 2번
-<img src="img/2.gif">
+<img src="./image/2.gif">
 
 # 3번
-<img src="img/3.gif">
+<img src="./image/3.gif">
 
 
 
