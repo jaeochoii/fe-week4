@@ -14,8 +14,8 @@ const Problem = () => {
   const [isClick, setIsClick] = useState(false);
 
   useEffect(() => {
-    setCount(count + 1);
-  }, [isClick]);
+    setCount((state) => state +1); // setCount(count + 1)을 해버리면 useEffect에 count를 해버릴 수 없게 된다. 그러므로 useState함수의 형태로 넣어줘야한다
+  }, [isClick]);                   // (state) => state +1을 입력하여 해결한다 
 
   return (
     <ProblemWrapper>
