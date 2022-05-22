@@ -75,14 +75,11 @@ https://user-images.githubusercontent.com/77886826/167910647-88da0576-8467-4b1b-
 - pr 의 제목은 | [내이름] 제목 |으로 합니다.
 ex) [이성인] 리엑트는 너무 재밋어!
 
-# 1번
-<img src="./image/1.gif">
+# 제출 사진
 
-# 2번
-<img src="./image/2.gif">
-
-# 3번
-<img src="./image/3.gif">
+<img src="1.gif">
+<img src="2.gif">
+<img src="3.gif">
 
 
 
