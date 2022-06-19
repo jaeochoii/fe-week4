@@ -3,15 +3,6 @@
 반갑습니다 여러분!!☺️ 
 벌써 react의 정말 재밌는! 필수적인 요소인 hooks를 다뤄보는 시간입니다!
 
-# 실습 진행방법 
-기존의 실습들과 동일하게 진행됩니다
- - 이 레포를 fork 한다!
- - fork하여 이동한 자신의 레포에서 깃크라켄을 통해 클론을 받습니다.
- - 클론을 받은 파일을 vs 코드에서 엽니다!
- - vs 코드에서 터미널을 열어서 npm i 후 npm run start 를 입력하면 코드가 실행됩니다!
- 
-이번 실습도 2주차와 마찬가지로 3차에 걸쳐서 진행됩니다! 마지막까지 열심히 진행해보시죠 ㅎㅎ 
-
 # 실습 1번문제
  InputSample 컴포넌트는 name과 nickname을 입력받아서 render시키는 컴포넌트 입니다. 해당 기능을 수행하기 위해 주석이 있는 부분을 채워 기능을 완성시켜 봅시다<br> 
  ![image](https://user-images.githubusercontent.com/77886826/167911379-d2877351-6507-4c26-8b49-fbb647980b0d.png)<br> 
@@ -27,15 +18,73 @@ ex) <br>
 
 https://user-images.githubusercontent.com/77886826/167908055-e3287bcf-5176-4188-8222-0773abc215d5.mov
 
-<br>
-다음과 같이 입력받을 때 name, nickname 등이 수정되도록 바꾸어 주세요 또한 reset 버튼을 사용하면 모든 입력값이 초기화되도록 해주세요!<br>
-쉽게 말해서 위의 동영상과 완벽히 동일하게 구현하시면 됩니다!
-<br>
-+) 해당 페이지에서 useState()를 한번만 사용하신다면 선착순!! 제가 커피한잔 사드리겠습니다!
+### 해결방안
+```JavaScript
 
-### 제출방법
-앞선 과제들과 마찬가지로 pr에 해당문제의 번호와 동영상을 적어주세요!
+function InputSample() {
+  const[name, setName] = useState("");
+  const[nickname, setNickname] = useState("");
+  const onChange1 = (e) => {
+    console.log(e.target.value); 
+    setName(e.target.value);
+  };
 
+  const onChange2 = (e) => {
+    console.log(e.target.value); 
+    setNickname(e.target.value);
+  };
+
+  const onReset = () => {
+    setName("")
+    setNickname("")
+  };
+
+  return (
+    <div>
+      <InputWrapper>
+        <input
+          name="name"
+          placeholder="이름"
+          onChange={onChange1}
+        />
+        <input
+          name="nickname"
+          placeholder="닉네임"
+          onChange={onChange2}
+          
+        />
+        <button onClick={onReset}>초기화</button>
+      </InputWrapper>
+
+      <ViewWrapper>
+        값 : {name === '' ? "이름이 없습니다." :  name} 
+        ({nickname === '' ? "별명이 없습니다." : nickname})
+        </ViewWrapper>
+
+    </div>
+  );
+}
+
+export default InputSample;
+
+# 이름에는 이름값을, 닉네임에는 닉네임 값을 집어넣는 코드를 작성해야 합니다.
+<br>
+리액트에서는 함수형 컴포넌트에서도 상태를 관리할 수 있게 되었습니다. UseState라는 함수를 이용하여 컴포넌트에서 바뀌는 값을 관리할 수 있게 되었습니다.
+name과 nickname값을 변수로 받습니다. 여기서 onChange1 은 name의 값을, onChange2는 nickname의 값을 세팅하는 함수입니다.
+onchange는 이벤트의 한 종류로서 이벤트 객체 e를 피라미터로 받아와서 사용하게 되는데 이 객체의 e.target은 이벤트가 발생한 input의 value값, 즉 e.target.value를 조회하면 현재 input에 입력한 값이 무엇인지 알 수 있게 해줍니다.
+<br>
+여기서는 name과 nickname값을 알 수 있는 것이죠. 여기서 나온 값을 useState에서 관리를 해주는 것입니다.
+onClick={onReset}은 버튼을 누르게 되면 0으로 초기화 해주는 함수입니다.
+
+<br>
+한편 값을 넣지 않았을 때에는 삼항연산자를 이용하였습니다.
+```JavaScript
+값 : {name === '' ? "이름이 없습니다." :  name} 
+        ({nickname === '' ? "별명이 없습니다." : nickname})
+```
+
+
+https://user-images.githubusercontent.com/103018984/174475573-dde0e16b-457a-4974-b20a-869640647949.mov
 
 
 # 실습 2번문제
